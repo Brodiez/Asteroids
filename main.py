@@ -35,6 +35,10 @@ def main():
             if player.check_collisions(asteroid):
                 print("Game Over!")
                 return
+            for shot in shots:
+                if shot.check_collisions(asteroid):
+                    shot.kill()
+                    asteroid.kill()
         for drawing in drawable:
             drawing.draw(screen)
         pygame.display.flip()
